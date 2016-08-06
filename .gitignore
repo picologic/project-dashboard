@@ -42,3 +42,4 @@ config/*.json
 
 # public generated files
 src/public/app
+src/public/lib
