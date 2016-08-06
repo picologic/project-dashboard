@@ -1,14 +1,16 @@
 var harvest = require('harvest');
+var config = require('config');
 
 var HarvestService = (function() {
-    function ctor(config) {
+    function ctor() {
         // validate config
-        if (!config.subdomain || config.subdomain === '') throw new Error('Subdomain not provided');
-        if (!config.email || config.email === '') throw new Error('Email not provided');
-        if (!config.password || config.password === '') throw new Error('Password not provided');
+        var cfg = config.get('harvest');
+        if (!cfg.subdomain || cfg.subdomain === '') throw new Error('Subdomain not provided');
+        if (!cfg.email || cfg.email === '') throw new Error('Email not provided');
+        if (!cfg.password || cfg.password === '') throw new Error('Password not provided');
 
-        this.config = config;
-        this.harvestClient = new harvest(config);
+        this.cfg = cfg;
+        this.harvestClient = new harvest(cfg);
     }
     return ctor;
 }());
