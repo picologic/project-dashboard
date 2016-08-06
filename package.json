@@ -1,0 +1,16 @@
+{
+  "name": "project-dashboard",
+  "version": "0.0.1",
+  "description": "Simple application to track status and budget for projects integrating with Harvest, Forecast, and Asana.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Harvest",
+    "Forecast",
+    "Asana"
+  ],
+  "author": "Pico Logic LLC",
+  "license": "MIT"
+}
