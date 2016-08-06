@@ -20,8 +20,10 @@
     "jshint": "^2.9.2"
   },
   "dependencies": {
+    "bluebird": "^3.4.1",
     "config": "^1.21.0",
     "express": "^4.14.0",
-    "harvest": "^0.1.5"
+    "harvest": "^0.1.5",
+    "underscore": "^1.8.3"
   }
 }
