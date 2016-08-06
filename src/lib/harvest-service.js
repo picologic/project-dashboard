@@ -28,12 +28,11 @@ var HarvestService = (function() {
 
         function list(params) {
             return _api.listAsync(params).then(function(results) {
-                var cleanParams = _cleanParams(params);
                 return _.chain(results)
                         .map(function (x) {
                             return x[_objName];
                         })
-                        .where(cleanParams)
+                        .where(params)
                         .value();
             });
         }
@@ -43,25 +42,6 @@ var HarvestService = (function() {
                 .then(function(results) {
                     return results[_objName];
                 });
-        }
-
-        function _cleanParams(params) {
-            for (var key in params) {
-                params[key] = _convert(params[key]);
-            }
-            return params;
-        }
-
-        function _convert(value) {
-            if (value === 'true' || value === 'false') {
-                return value === 'true';
-            }
-
-            if (!isNaN(parseFloat(value)) && isFinite(value)) {
-                return parseFloat(value);
-            }
-
-            return value;
         }
     }
 }());

@@ -3,7 +3,7 @@ var harvestService = require('../../lib/harvest-service');
 
 module.exports.list = function (req, res) {
     var svc = new harvestService();
-    svc.Projects.list(params(req))
+    svc.Projects.list(params(req, true))
         .then(function (results) {
             res.json(results);
         });
