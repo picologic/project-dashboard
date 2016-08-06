@@ -39,3 +39,6 @@ jspm_packages
 
 # Config data
 config/*.json
+
+# public generated files
+src/public/app
