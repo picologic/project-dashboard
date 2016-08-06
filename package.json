@@ -2,7 +2,7 @@
   "name": "project-dashboard",
   "version": "0.0.1",
   "description": "Simple application to track status and budget for projects integrating with Harvest, Forecast, and Asana.",
-  "main": "server/index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,14 @@
     "Asana"
   ],
   "author": "Pico Logic LLC",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.2"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "harvest": "^0.1.5"
+  }
 }
