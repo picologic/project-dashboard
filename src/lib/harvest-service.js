@@ -17,18 +17,18 @@ var HarvestService = (function() {
     }
     return ctor;
 
-    function resource (api, objName) {
+    function resource(api, objName) {
         var _api = bluebird.promisifyAll(api); 
         var _objName = objName;
         
         return {
-            list: list
+            list: list,
+            get: get
         };
 
-        function list (params) {
+        function list(params) {
             return _api.listAsync(params).then(function(results) {
                 var cleanParams = _cleanParams(params);
-                console.log(cleanParams);
                 return _.chain(results)
                         .map(function (x) {
                             return x[_objName];
@@ -36,6 +36,13 @@ var HarvestService = (function() {
                         .where(cleanParams)
                         .value();
             });
+        }
+
+        function get(id) {
+            return _api.getAsync({id: id})
+                .then(function(results) {
+                    return results[_objName];
+                });
         }
 
         function _cleanParams(params) {

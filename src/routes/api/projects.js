@@ -8,3 +8,11 @@ module.exports.list = function (req, res) {
             res.json(results);
         });
 };
+
+module.exports.get = function (req, res) {
+    var svc = new harvestService();
+    svc.Projects.get(req.params.project_id)
+        .then(function (results) {
+            res.json(results);
+        });
+};
