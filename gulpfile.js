@@ -1,7 +1,13 @@
 var gulp = require('gulp');
-var server = require('gulp-express');
+var del = require('del');
+var ts = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('server', function () {
-    server.run(['./src/server.js']);
-    gulp.watch(['./src/**/*.js'], [server.run]);
+gulp.task('clean', function() {
+    return del('./src/public/app');
+});
+
+gulp.task('package', function() {
+    return gulp.src(['./src/app/**/*', '!./src/app/**/*.ts'])
+               .pipe(gulp.dest('./src/public/app'));
 });
