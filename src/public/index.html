@@ -1,23 +1,33 @@
-<html>
-  <head>
-    <title>Project Dashboard</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/styles.css">
-    <!-- 1. Load libraries -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="/lib/shim.min.js"></script>
-    <script src="/lib/zone.js"></script>
-    <script src="/lib/Reflect.js"></script>
-    <script src="/lib/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script src="/js/systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <!-- 3. Display the application -->
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Project Dashboard</title>
+        <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="/vendor/core-js/client/shim.min.js"></script>
+        <script src="/vendor/zone.js/dist/zone.js"></script>
+        <script src="/vendor/reflect-metadata/Reflect.js"></script>
+        <script src="/vendor/systemjs/dist/system.src.js"></script>
+        <!-- 2. Configure SystemJS -->
+        <script src="/js/systemjs.config.js"></script>
+        <script>
+            System.import('app').catch(function(err){ console.error(err); });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <pd-app>Loading...</pd-app>
+        </div>
+    </body>
 </html>
