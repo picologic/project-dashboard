@@ -37,7 +37,7 @@ var AsanaService = (function() {
             if (!project_id || project_id === '') throw new Error('Must provide a project id');
 
             var opts = {
-                opt_fields: 'id,name,assignee_status,completed,assignee'
+                opt_fields: 'id,name,assignee_status,completed,assignee,due_on'
             };
 
             return client.tasks.findByProject(project_id, opts)
