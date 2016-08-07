@@ -4,12 +4,15 @@
         '@angular':                   'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs',
-        'shared':                     'app/shared'
+        'shared':                     'app/shared',
+        'dashboard':                  'app/dashboard'
     };
     var barrels = [
         'shared',
         'shared/models',
-        'shared/services'
+        'shared/services',
+        'dashboard',
+        'dashboard/project-filter'
     ];
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },

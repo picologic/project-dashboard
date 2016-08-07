@@ -1,29 +1,15 @@
 import { Component, OnInit } from "@angular/core";
+import { ROUTER_DIRECTIVES } from "@angular/router";
 
-import { ClientListComponent } from "./clients/client-list.component";
-import { ClientService, Client } from "./shared"
+import { DashboardComponent } from "./dashboard";
 
 @Component({
-  moduleId: module.id,
-  selector: 'pd-app',
-  templateUrl: 'app.component.html',
-  directives: [
-      ClientListComponent
-  ],
-  providers: [
-      ClientService
-  ]
+    moduleId: module.id,
+    selector: 'pd-app',
+    templateUrl: 'app.component.html',
+    directives: [ ROUTER_DIRECTIVES ],
+    precompile: [
+        DashboardComponent
+    ]
 })
-export class AppComponent implements OnInit { 
-    clients: Client[] = [];
-    constructor(private clientService: ClientService) { }
-
-    getClients() {
-        this.clientService.getClients()
-            .then(clients => this.clients = clients);
-    }
-
-    ngOnInit() {
-        this.getClients();
-    }
-}
+export class AppComponent { }
