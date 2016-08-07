@@ -12,7 +12,8 @@
         'shared/models',
         'shared/services',
         'dashboard',
-        'dashboard/project-filter'
+        'dashboard/project-filter',
+        'dashboard/task-list'
     ];
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },

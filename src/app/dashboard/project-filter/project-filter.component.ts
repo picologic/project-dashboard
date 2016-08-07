@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 import { ClientService, Client, Project, ProjectService } from "../../shared";
 
@@ -8,10 +8,14 @@ import { ClientService, Client, Project, ProjectService } from "../../shared";
     templateUrl: "project-filter.component.html"
 })
 export class ProjectFilterComponent implements OnInit {
+    @Output() onClientSelected = new EventEmitter<number>();
+    @Output() onProjectSelected = new EventEmitter<number>();
+    client_id: number;
+    project_id: number;
+
     private allProjects: Project[];
-    
-    clients: Client[];
-    projects: Project[];
+    private clients: Client[];
+    private projects: Project[];
 
     constructor(private clientService: ClientService, private projectService: ProjectService) { }
 
@@ -30,10 +34,13 @@ export class ProjectFilterComponent implements OnInit {
 
     onClientChange(client_id: number) {
         this.projects = this.allProjects.filter(p => p.client_id == client_id);
+        this.client_id = client_id;
+        this.onClientSelected.emit(client_id);
     }
 
     onProjectChange(project_id: number) {
-        console.log(project_id);
+        this.project_id = project_id;
+        this.onProjectSelected.emit(project_id);
     }
     
     ngOnInit() {

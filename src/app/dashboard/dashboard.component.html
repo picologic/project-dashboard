@@ -1,1 +1,6 @@
-<pd-project-filter></pd-project-filter>
+<pd-project-filter
+    (onClientSelected)="onClientSelected($event)"
+    (onProjectSelected)="onProjectSelected($event)">
+</pd-project-filter>
+
+<pd-task-list [tasks]="tasks"></pd-task-list>
