@@ -33,7 +33,11 @@ export class ProjectFilterComponent implements OnInit {
     }
 
     onClientChange(client_id: number) {
-        this.projects = this.allProjects.filter(p => p.client_id == client_id);
+        if (client_id != null) {
+            this.projects = this.allProjects.filter(p => p.client_id == client_id);
+        } else {
+            this.projects = this.allProjects;
+        }
         this.client_id = client_id;
         this.onClientSelected.emit(client_id);
     }
